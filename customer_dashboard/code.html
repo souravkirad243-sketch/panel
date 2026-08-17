@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>CARD//VAULT - Customer Dashboard</title>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;600;800&amp;family=Inter:wght@400&amp;family=JetBrains+Mono:wght@500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "tertiary-fixed": "#efdbff",
+                        "background": "#131313",
+                        "surface-container-high": "#2a2a2a",
+                        "surface-variant": "#353534",
+                        "surface-bright": "#3a3939",
+                        "on-primary-container": "#107100",
+                        "surface-tint": "#2ae500",
+                        "on-secondary": "#00373a",
+                        "surface-container": "#201f1f",
+                        "secondary": "#dcfdff",
+                        "surface": "#131313",
+                        "outline": "#85967c",
+                        "on-error-container": "#ffdad6",
+                        "surface-container-low": "#1c1b1b",
+                        "error": "#ffb4ab",
+                        "primary-fixed": "#79ff5b",
+                        "on-secondary-fixed": "#002022",
+                        "on-error": "#690005",
+                        "inverse-on-surface": "#313030",
+                        "surface-container-highest": "#353534",
+                        "on-secondary-fixed-variant": "#004f53",
+                        "on-primary-fixed-variant": "#095300",
+                        "surface-dim": "#131313",
+                        "on-tertiary-fixed-variant": "#6500b8",
+                        "on-primary": "#053900",
+                        "on-tertiary-fixed": "#2b0053",
+                        "tertiary-container": "#ebd5ff",
+                        "tertiary-fixed-dim": "#dab9ff",
+                        "inverse-primary": "#106e00",
+                        "tertiary": "#fff8fe",
+                        "surface-container-lowest": "#0e0e0e",
+                        "primary": "#efffe3",
+                        "secondary-fixed": "#6ff6ff",
+                        "error-container": "#93000a",
+                        "on-tertiary-container": "#8900f5",
+                        "on-background": "#e5e2e1",
+                        "secondary-fixed-dim": "#00dce6",
+                        "primary-container": "#39ff14",
+                        "on-surface": "#e5e2e1",
+                        "primary-fixed-dim": "#2ae500",
+                        "inverse-surface": "#e5e2e1",
+                        "on-surface-variant": "#baccb0",
+                        "on-tertiary": "#470083",
+                        "outline-variant": "#3c4b35",
+                        "secondary-container": "#00f1fd",
+                        "on-secondary-container": "#006a6f",
+                        "on-primary-fixed": "#022100"
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    spacing: {
+                        "margin-mobile": "16px",
+                        "md": "24px",
+                        "xs": "8px",
+                        "xl": "80px",
+                        "margin-desktop": "64px",
+                        "base": "4px",
+                        "sm": "16px",
+                        "lg": "40px",
+                        "gutter": "20px"
+                    },
+                    fontFamily: {
+                        "display-lg": ["Geist"],
+                        "body-md": ["Inter"],
+                        "display-lg-mobile": ["Geist"],
+                        "label-caps": ["JetBrains Mono"],
+                        "headline-md": ["Geist"],
+                        "technical-sm": ["JetBrains Mono"]
+                    },
+                    fontSize: {
+                        "display-lg": ["48px", { lineHeight: "1.1", letterSpacing: "-0.04em", fontWeight: "800" }],
+                        "body-md": ["16px", { lineHeight: "1.6", letterSpacing: "0", fontWeight: "400" }],
+                        "display-lg-mobile": ["32px", { lineHeight: "1.2", letterSpacing: "-0.02em", fontWeight: "800" }],
+                        "label-caps": ["10px", { lineHeight: "1", letterSpacing: "0.1em", fontWeight: "700" }],
+                        "headline-md": ["24px", { lineHeight: "1.4", letterSpacing: "-0.01em", fontWeight: "600" }],
+                        "technical-sm": ["12px", { lineHeight: "1.5", letterSpacing: "0.05em", fontWeight: "500" }]
+                    }
+                }
+            }
+        };
+    </script>
+<style>
+        .cyber-grid {
+            background-color: #0e0e0e; /* surface-container-lowest */
+            background-image: linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+                              linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+        .neon-glow-primary {
+            box-shadow: 0 0 15px rgba(57, 255, 20, 0.3);
+        }
+        .neon-glow-secondary {
+            box-shadow: 0 0 15px rgba(0, 243, 255, 0.3);
+        }
+        .glass-panel {
+            background: rgba(18, 18, 18, 0.7);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+    </style>
+</head>
+<body class="cyber-grid text-on-background font-body-md text-body-md min-h-screen flex flex-col">
+<!-- TopNavBar -->
+<header class="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop py-4 sticky top-0 z-50 border-b border-outline-variant bg-surface-container-lowest/80 backdrop-blur-xl shadow-[0_0_15px_rgba(42,229,0,0.1)]">
+<div class="flex items-center gap-md">
+<div class="font-display-lg-mobile text-display-lg-mobile md:font-display-lg md:text-display-lg tracking-tighter text-primary-fixed-dim uppercase">
+                CARD//VAULT
+            </div>
+<nav class="hidden md:flex gap-md ml-lg">
+<a class="text-on-surface-variant font-technical-sm hover:text-primary-fixed-dim hover:bg-surface-variant/20 transition-all px-xs py-base rounded" href="#">Deals</a>
+<a class="text-primary-fixed font-bold border-b-2 border-primary-fixed hover:text-primary-fixed-dim hover:bg-surface-variant/20 transition-all px-xs py-base scale-95 duration-100" href="#">Orders</a>
+</nav>
+</div>
+<div class="flex items-center gap-sm text-primary-fixed-dim">
+<button class="hover:text-primary-fixed-dim hover:bg-surface-variant/20 transition-all p-xs rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined">shopping_cart</span>
+</button>
+<button class="hover:text-primary-fixed-dim hover:bg-surface-variant/20 transition-all p-xs rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined">account_circle</span>
+</button>
+</div>
+</header>
+<!-- Main Content -->
+<main class="flex-grow flex flex-col md:flex-row w-full max-w-[1440px] mx-auto px-margin-mobile md:px-margin-desktop py-lg gap-gutter">
+<!-- Sidebar Navigation -->
+<aside class="w-full md:w-64 flex-shrink-0 flex flex-col gap-sm">
+<div class="font-label-caps text-label-caps text-on-surface-variant mb-xs tracking-widest">DASHBOARD_ACCESS</div>
+<a class="flex items-center gap-xs text-secondary-fixed-dim font-technical-sm text-technical-sm bg-secondary-fixed-dim/10 border border-secondary-fixed-dim/30 rounded px-sm py-xs neon-glow-secondary" href="#">
+<span class="text-secondary-fixed-dim">&gt; </span>Orders
+            </a>
+<a class="flex items-center gap-xs text-on-surface-variant font-technical-sm text-technical-sm hover:text-secondary-fixed-dim transition-colors rounded px-sm py-xs border border-transparent hover:border-secondary-fixed-dim/30" href="#">
+                Digital Purchases
+            </a>
+<a class="flex items-center gap-xs text-on-surface-variant font-technical-sm text-technical-sm hover:text-secondary-fixed-dim transition-colors rounded px-sm py-xs border border-transparent hover:border-secondary-fixed-dim/30" href="#">
+                Wishlist
+            </a>
+<a class="flex items-center gap-xs text-on-surface-variant font-technical-sm text-technical-sm hover:text-secondary-fixed-dim transition-colors rounded px-sm py-xs border border-transparent hover:border-secondary-fixed-dim/30" href="#">
+                Profile
+            </a>
+<a class="flex items-center gap-xs text-on-surface-variant font-technical-sm text-technical-sm hover:text-secondary-fixed-dim transition-colors rounded px-sm py-xs border border-transparent hover:border-secondary-fixed-dim/30" href="#">
+                Notifications
+                <span class="ml-auto bg-primary-container text-on-primary-container px-[6px] py-[2px] rounded-full text-[10px] font-bold">2</span>
+</a>
+</aside>
+<!-- Main View Area -->
+<section class="flex-grow flex flex-col gap-lg">
+<!-- Profile Summary Bento -->
+<div class="glass-panel p-md rounded-lg grid grid-cols-1 md:grid-cols-3 gap-md">
+<div class="col-span-1 md:col-span-2 flex flex-col justify-center">
+<div class="font-label-caps text-label-caps text-on-surface-variant mb-xs">USER_IDENTIFICATION</div>
+<h1 class="font-headline-md text-headline-md text-on-surface flex items-center gap-sm">
+                        Cipher_X
+                        <span class="material-symbols-outlined text-primary-container text-sm" style="font-variation-settings: 'FILL' 1;">verified_user</span>
+</h1>
+</div>
+<div class="flex flex-col gap-sm border-t md:border-t-0 md:border-l border-outline-variant pt-sm md:pt-0 md:pl-md">
+<div>
+<div class="font-label-caps text-label-caps text-on-surface-variant">SECURITY_LEVEL</div>
+<div class="font-technical-sm text-technical-sm text-primary-container uppercase tracking-widest mt-base">Elite Status</div>
+</div>
+<div>
+<div class="font-label-caps text-label-caps text-on-surface-variant">LOYALTY_PTS</div>
+<div class="font-technical-sm text-technical-sm text-secondary-fixed-dim mt-base">84,092.44</div>
+</div>
+</div>
+</div>
+<!-- Active Orders -->
+<div>
+<h2 class="font-headline-md text-headline-md mb-md border-b border-outline-variant pb-xs">Active Orders</h2>
+<div class="flex flex-col gap-sm">
+<!-- Order Item -->
+<div class="glass-panel p-md rounded-lg flex flex-col md:flex-row justify-between items-start md:items-center gap-md">
+<div class="flex items-center gap-md">
+<div class="w-12 h-12 bg-surface-container flex items-center justify-center border border-outline-variant rounded">
+<span class="material-symbols-outlined text-on-surface-variant">package</span>
+</div>
+<div>
+<div class="font-technical-sm text-technical-sm text-on-surface">ORD-8922-Alpha</div>
+<div class="font-label-caps text-label-caps text-on-surface-variant mt-base">EXP_DELIVERY: 24HR</div>
+</div>
+</div>
+<div class="w-full md:w-1/3">
+<div class="flex justify-between font-label-caps text-label-caps mb-base">
+<span class="text-secondary-fixed-dim">IN_TRANSIT</span>
+<span class="text-on-surface-variant">75%</span>
+</div>
+<div class="flex gap-[2px] h-2">
+<div class="flex-1 bg-secondary-fixed-dim rounded-sm"></div>
+<div class="flex-1 bg-secondary-fixed-dim rounded-sm"></div>
+<div class="flex-1 bg-secondary-fixed-dim rounded-sm"></div>
+<div class="flex-1 bg-surface-variant rounded-sm"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Recent Purchases Grid -->
+<div>
+<h2 class="font-headline-md text-headline-md mb-md border-b border-outline-variant pb-xs">Recent Purchases</h2>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-md">
+<!-- Card Thumbnail -->
+<div class="glass-panel p-sm rounded-lg flex flex-col gap-sm group">
+<div class="relative w-full aspect-[3/4] border border-outline-variant rounded overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A highly detailed, ultra-realistic digital rendering of a collectible trading card floating in a dark, high-tech void. The card features a glowing, holographic geometric entity at its center. The lighting is dramatic, emphasizing high contrast with deep blacks, pristine whites, and piercing neon cyan and bright green edge lights. The style is premium cyberpunk glassmorphism, evoking a secure, encrypted digital vault aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC06r1Twu-cYqsn52NAN1qtaGTHiC_CDnyudiDAZfgu-lNs66uIXmRS0cnMQxqUg0uGu6f2t_tQvz0rZ-TTWj9J3UngPRYcOSZdL3b3STersuDDjH6GVWAMCppvZKvNNUNoGvek28j_Jzy9fVbsD9PaM8w9iRVrF_dWKwucrm2MqPnYF3kPzfewCChlOax6FqVrQLHSvYvpSY6slrV-yiP4fdXKNerWm1ZmPYaZAOWtJdKV5xb4Lluc"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-dim to-transparent opacity-60"></div>
+<div class="absolute bottom-2 left-2 right-2 flex justify-between items-end">
+<span class="font-label-caps text-label-caps text-on-surface bg-surface-dim/80 px-2 py-1 rounded border border-outline-variant backdrop-blur-sm">MINT_092</span>
+<span class="material-symbols-outlined text-secondary-fixed-dim text-sm">qr_code_scanner</span>
+</div>
+</div>
+<div class="font-technical-sm text-technical-sm truncate text-on-surface group-hover:text-secondary-fixed-dim transition-colors">
+                            Synapse Router // V2
+                        </div>
+</div>
+<!-- Card Thumbnail -->
+<div class="glass-panel p-sm rounded-lg flex flex-col gap-sm group">
+<div class="relative w-full aspect-[3/4] border border-outline-variant rounded overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A striking digital artwork of a rare collectible card enclosed in a digital stasis field. The card depicts a minimalist cybernetic skull composed of glowing wireframes. The environment is entirely black, illuminated only by the light emitted from the card itself—vibrant neon green and subtle cyan hues. The aesthetic is extremely high-fidelity, technological, and premium, resembling an item in an elite hacker's encrypted inventory." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAY4iIj_6Aicoi1CSD5bilc-2FV74LpdU5Vh-3uxmi87_UwPTgf0qrzsXziuEW0K-F9j8vEOoLMQxUD2of-qAHsolrqG7hX6nSCZySrzRGM_P4bIC9ecXTch6VIKeYCRqsnNQ_2prQl_Pq7qCb9n61zWq6a0t4W61JExTH4n0OaSpNu6jsMHQ6AvPhdizWgAyJqYEoM1E0H8ro8V_6xTL_Pmw2tdP2hWbc3p-EDdqJXE-IZQtRuVFTj"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-dim to-transparent opacity-60"></div>
+<div class="absolute bottom-2 left-2 right-2 flex justify-between items-end">
+<span class="font-label-caps text-label-caps text-on-surface bg-surface-dim/80 px-2 py-1 rounded border border-outline-variant backdrop-blur-sm">MINT_011</span>
+<span class="material-symbols-outlined text-secondary-fixed-dim text-sm">qr_code_scanner</span>
+</div>
+</div>
+<div class="font-technical-sm text-technical-sm truncate text-on-surface group-hover:text-secondary-fixed-dim transition-colors">
+                            Logic Bomb [Holo]
+                        </div>
+</div>
+</div>
+</div>
+<!-- Notifications -->
+<div>
+<h2 class="font-headline-md text-headline-md mb-md border-b border-outline-variant pb-xs">System Alerts</h2>
+<div class="flex flex-col gap-xs">
+<div class="glass-panel px-md py-sm rounded flex items-start gap-sm border-l-2 border-l-primary-container">
+<span class="material-symbols-outlined text-primary-container mt-[2px]">campaign</span>
+<div>
+<div class="font-technical-sm text-technical-sm text-on-surface">New deal on Trading Cards</div>
+<div class="font-label-caps text-label-caps text-on-surface-variant mt-1">SYS_TIME: 14:02:44 // PROMO_ACTV</div>
+</div>
+</div>
+<div class="glass-panel px-md py-sm rounded flex items-start gap-sm border-l-2 border-l-secondary-fixed-dim">
+<span class="material-symbols-outlined text-secondary-fixed-dim mt-[2px]">security</span>
+<div>
+<div class="font-technical-sm text-technical-sm text-on-surface">Secure login detected</div>
+<div class="font-label-caps text-label-caps text-on-surface-variant mt-1">IP: 192.168.**.** // AUTH_SUCCESS</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full px-margin-mobile md:px-margin-desktop py-xl flex flex-col gap-md border-t border-outline-variant bg-background mt-auto bg-surface-container-lowest dark:bg-surface-container-lowest text-primary-fixed-dim dark:text-primary-fixed-dim">
+<div class="font-display-lg text-display-lg text-primary-fixed-dim uppercase">
+            CARD//VAULT
+        </div>
+<div class="flex flex-wrap gap-md font-label-caps text-label-caps text-on-surface-variant">
+<a class="hover:text-secondary-fixed transition-colors" href="#">SECURE CHECKOUT</a>
+<a class="hover:text-secondary-fixed transition-colors" href="#">VERIFIED SELLERS</a>
+<a class="hover:text-secondary-fixed transition-colors" href="#">TERMS_OF_SERVICE</a>
+<a class="hover:text-secondary-fixed transition-colors" href="#">PRIVACY_ENCRYPTION</a>
+</div>
+<div class="font-technical-sm text-technical-sm text-on-surface-variant mt-sm">
+            © 2024 CARD//VAULT TERMINAL. ALL RIGHTS RESERVED.
+        </div>
+</footer>
+</body></html>

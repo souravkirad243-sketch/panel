@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>CARD//VAULT Login</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700;800&amp;family=Geist:wght@400;600;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "inverse-on-surface": "#313030",
+                      "tertiary-fixed": "#efdbff",
+                      "primary": "#efffe3",
+                      "surface-container-low": "#1c1b1b",
+                      "tertiary-fixed-dim": "#dab9ff",
+                      "on-tertiary-fixed": "#2b0053",
+                      "on-secondary": "#00373a",
+                      "surface-container-lowest": "#0e0e0e",
+                      "on-surface-variant": "#baccb0",
+                      "outline": "#85967c",
+                      "tertiary-container": "#ebd5ff",
+                      "inverse-primary": "#106e00",
+                      "surface": "#131313",
+                      "on-primary-fixed": "#022100",
+                      "on-secondary-fixed-variant": "#004f53",
+                      "surface-dim": "#131313",
+                      "secondary-fixed": "#6ff6ff",
+                      "tertiary": "#fff8fe",
+                      "primary-fixed-dim": "#2ae500",
+                      "error": "#ffb4ab",
+                      "inverse-surface": "#e5e2e1",
+                      "error-container": "#93000a",
+                      "surface-tint": "#2ae500",
+                      "on-tertiary-container": "#8900f5",
+                      "surface-bright": "#3a3939",
+                      "on-tertiary": "#470083",
+                      "outline-variant": "#3c4b35",
+                      "primary-container": "#39ff14",
+                      "surface-container": "#201f1f",
+                      "surface-variant": "#353534",
+                      "primary-fixed": "#79ff5b",
+                      "on-secondary-container": "#006a6f",
+                      "on-error-container": "#ffdad6",
+                      "on-primary-fixed-variant": "#095300",
+                      "on-primary-container": "#107100",
+                      "secondary-container": "#00f1fd",
+                      "secondary-fixed-dim": "#00dce6",
+                      "on-error": "#690005",
+                      "background": "#131313",
+                      "on-surface": "#e5e2e1",
+                      "on-tertiary-fixed-variant": "#6500b8",
+                      "on-secondary-fixed": "#002022",
+                      "surface-container-high": "#2a2a2a",
+                      "on-background": "#e5e2e1",
+                      "surface-container-highest": "#353534",
+                      "on-primary": "#053900",
+                      "secondary": "#dcfdff"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "spacing": {
+                      "xs": "8px",
+                      "base": "4px",
+                      "margin-mobile": "16px",
+                      "gutter": "20px",
+                      "lg": "40px",
+                      "sm": "16px",
+                      "xl": "80px",
+                      "margin-desktop": "64px",
+                      "md": "24px"
+              },
+              "fontFamily": {
+                      "technical-sm": [
+                              "JetBrains Mono"
+                      ],
+                      "display-lg": [
+                              "Geist"
+                      ],
+                      "headline-md": [
+                              "Geist"
+                      ],
+                      "display-lg-mobile": [
+                              "Geist"
+                      ],
+                      "label-caps": [
+                              "JetBrains Mono"
+                      ],
+                      "body-md": [
+                              "Inter"
+                      ]
+              },
+              "fontSize": {
+                      "technical-sm": [
+                              "12px",
+                              {
+                                      "lineHeight": "1.5",
+                                      "letterSpacing": "0.05em",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "display-lg": [
+                              "48px",
+                              {
+                                      "lineHeight": "1.1",
+                                      "letterSpacing": "-0.04em",
+                                      "fontWeight": "800"
+                              }
+                      ],
+                      "headline-md": [
+                              "24px",
+                              {
+                                      "lineHeight": "1.4",
+                                      "letterSpacing": "-0.01em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "display-lg-mobile": [
+                              "32px",
+                              {
+                                      "lineHeight": "1.2",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "800"
+                              }
+                      ],
+                      "label-caps": [
+                              "10px",
+                              {
+                                      "lineHeight": "1",
+                                      "letterSpacing": "0.1em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "body-md": [
+                              "16px",
+                              {
+                                      "lineHeight": "1.6",
+                                      "letterSpacing": "0",
+                                      "fontWeight": "400"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+      </script>
+<style>
+        body {
+            background-color: #050505;
+            background-image: 
+                linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+            background-size: 20px 20px;
+            color: #e5e2e1;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .scanline {
+            width: 100%;
+            height: 100px;
+            z-index: 10;
+            position: absolute;
+            pointer-events: none;
+            background: linear-gradient(0deg, rgba(0, 0, 0, 0) 0%, rgba(0, 243, 255, 0.05) 50%, rgba(0, 0, 0, 0) 100%);
+            opacity: 0.1;
+            animation: scanline 8s linear infinite;
+        }
+
+        @keyframes scanline {
+            0% {
+                transform: translateY(-100vh);
+            }
+            100% {
+                transform: translateY(100vh);
+            }
+        }
+
+        .vault-card {
+            background-color: #121212;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            box-shadow: 0 0 40px rgba(0, 243, 255, 0.05);
+            backdrop-filter: blur(20px);
+            position: relative;
+        }
+        
+        .vault-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            border: 1px solid rgba(0, 243, 255, 0.1);
+            pointer-events: none;
+        }
+
+        .input-tech {
+            background-color: #0a0a0a;
+            border: none;
+            border-bottom: 1px solid #3c4b35;
+            color: #e5e2e1;
+            transition: all 0.2s ease;
+        }
+
+        .input-tech:focus {
+            outline: none;
+            border-bottom-color: #00F3FF;
+            box-shadow: 0 1px 15px rgba(0, 243, 255, 0.2);
+        }
+
+        .input-tech::placeholder {
+            color: rgba(229, 226, 225, 0.4);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 12px;
+        }
+
+        .btn-primary {
+            background-color: #39FF14;
+            color: #000;
+            border: none;
+            text-transform: uppercase;
+            transition: all 0.2s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary:hover {
+            box-shadow: 0 0 20px rgba(57, 255, 20, 0.6);
+            transform: translateY(-1px);
+        }
+
+        .btn-primary::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(rgba(255,255,255,0.2), transparent, rgba(255,255,255,0.2));
+            transform: rotate(45deg);
+            animation: glitch-anim 4s infinite linear;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        
+        .btn-primary:hover::after {
+            opacity: 1;
+        }
+
+        @keyframes glitch-anim {
+            0% { transform: translateX(-100%) rotate(45deg); }
+            100% { transform: translateX(100%) rotate(45deg); }
+        }
+
+        .hud-icon {
+            border: 1px solid rgba(0, 243, 255, 0.2);
+            color: #00F3FF;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            background: rgba(0, 243, 255, 0.05);
+        }
+      </style>
+</head>
+<body class="font-body-md text-body-md text-on-background w-full h-full p-4 md:p-0 relative">
+<div class="scanline"></div>
+<div class="z-20 flex flex-col items-center justify-center w-full max-w-[420px]">
+<!-- Header Logo -->
+<div class="mb-lg flex flex-col items-center">
+<div class="w-16 h-16 mb-sm relative">
+<div class="absolute inset-0 bg-primary-container blur-[20px] opacity-20"></div>
+<img alt="CARD//VAULT Logo" class="w-full h-full object-contain relative z-10 filter sepia-[100%] hue-rotate-[70deg] saturate-[300%] brightness-[1.2]" src="https://lh3.googleusercontent.com/aida/AP1WRLu6AogALOJRjo-38lM82l-nNKZY6umplZMldB7QpIZox87a2CA_wspwpEVKb7gJEFK4h3JFylxvHBq1oANJGh8Zi-vWhmgqcPn7XcZRCEyV46tcJXfZ8jmzPsIIicF-ZuiFUFsZFG1KzuZIDKWYDbTkL3hl9M5LZX6PuPX0X4maKfAq1lOfLkmFv1KHlG-FcBsAsKSjX0ee_0PjgcHwnDoFWttWaxJH0pFlYDNDZscaPqUHFyEx3TEjPA"/>
+</div>
+<h1 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg tracking-tighter text-primary-fixed-dim uppercase">CARD//VAULT</h1>
+<p class="font-technical-sm text-technical-sm text-on-surface-variant mt-xs opacity-70">SECURE TERMINAL ACCESS</p>
+</div>
+<!-- Login Card -->
+<div class="vault-card w-full p-md md:p-lg flex flex-col gap-md relative">
+<!-- Corner Decals -->
+<div class="absolute top-0 left-0 w-2 h-2 border-t border-l border-secondary-fixed opacity-50"></div>
+<div class="absolute top-0 right-0 w-2 h-2 border-t border-r border-secondary-fixed opacity-50"></div>
+<div class="absolute bottom-0 left-0 w-2 h-2 border-b border-l border-secondary-fixed opacity-50"></div>
+<div class="absolute bottom-0 right-0 w-2 h-2 border-b border-r border-secondary-fixed opacity-50"></div>
+<div class="flex items-center gap-sm border-b border-outline-variant pb-xs mb-sm">
+<div class="hud-icon">
+<span class="material-symbols-outlined" style="font-size: 18px;">lock</span>
+</div>
+<h2 class="font-headline-md text-headline-md text-on-surface m-0 uppercase tracking-widest text-sm">Authentication</h2>
+</div>
+<form class="flex flex-col gap-md" onsubmit="event.preventDefault();">
+<!-- Email Field -->
+<div class="flex flex-col gap-xs">
+<label class="font-label-caps text-label-caps text-on-surface-variant flex items-center justify-between" for="email">
+<span>&gt; IDENTITY_ID</span>
+</label>
+<div class="relative">
+<input autocomplete="email" class="input-tech w-full py-sm pl-sm pr-10 font-technical-sm text-technical-sm" id="email" placeholder="Enter operator email..." required="" type="email"/>
+<span class="material-symbols-outlined absolute right-2 top-1/2 -translate-y-1/2 text-secondary-container opacity-50 pointer-events-none" style="font-size: 16px;">badge</span>
+</div>
+</div>
+<!-- Password Field -->
+<div class="flex flex-col gap-xs">
+<label class="font-label-caps text-label-caps text-on-surface-variant flex items-center justify-between" for="password">
+<span>&gt; PASSKEY</span>
+<a class="text-secondary-fixed hover:text-secondary-fixed-dim transition-colors opacity-80" href="#">&gt; FORGOT?</a>
+</label>
+<div class="relative">
+<input autocomplete="current-password" class="input-tech w-full py-sm pl-sm pr-10 font-technical-sm text-technical-sm" id="password" placeholder="Enter encrypted passkey..." required="" type="password"/>
+<button class="absolute right-2 top-1/2 -translate-y-1/2 text-secondary-container opacity-50 hover:opacity-100 transition-opacity focus:outline-none" id="togglePassword" type="button">
+<span class="material-symbols-outlined" id="visibilityIcon" style="font-size: 16px;">visibility</span>
+</button>
+</div>
+</div>
+<!-- Remember Me -->
+<div class="flex items-center gap-sm mt-xs">
+<div class="relative flex items-center">
+<input class="peer appearance-none w-4 h-4 border border-secondary-container bg-surface-container-lowest checked:bg-secondary-container checked:border-secondary-container focus:outline-none focus:ring-1 focus:ring-secondary-container focus:ring-offset-1 focus:ring-offset-background cursor-pointer transition-colors" id="remember" type="checkbox"/>
+<span class="material-symbols-outlined absolute left-0 text-background pointer-events-none opacity-0 peer-checked:opacity-100 transition-opacity" style="font-size: 16px;">check</span>
+</div>
+<label class="font-technical-sm text-technical-sm text-on-surface-variant cursor-pointer hover:text-on-surface transition-colors" for="remember">MAINTAIN CONNECTION</label>
+</div>
+<!-- Submit Button -->
+<button class="btn-primary w-full py-sm mt-sm font-label-caps text-label-caps tracking-widest flex items-center justify-center gap-xs" type="submit">
+<span>INITIALIZE PROTOCOL</span>
+<span class="material-symbols-outlined" style="font-size: 16px;">login</span>
+</button>
+</form>
+</div>
+<!-- Footer Microcopy -->
+<div class="mt-lg flex flex-col items-center gap-xs opacity-50">
+<p class="font-technical-sm text-technical-sm text-secondary-fixed flex items-center gap-xs">
+<span class="material-symbols-outlined" style="font-size: 14px;">encrypted</span>
+                SECURE AUTHENTICATION // AES-256
+            </p>
+<div class="flex gap-1">
+<div class="w-4 h-1 bg-secondary-fixed opacity-100"></div>
+<div class="w-4 h-1 bg-secondary-fixed opacity-60"></div>
+<div class="w-4 h-1 bg-secondary-fixed opacity-30"></div>
+<div class="w-4 h-1 bg-surface-variant"></div>
+<div class="w-4 h-1 bg-surface-variant"></div>
+</div>
+<p class="font-technical-sm text-technical-sm text-on-surface-variant" style="font-size: 10px;">SYS_VER: 4.2.0.9 // NODE: ALPHA</p>
+</div>
+</div>
+<script>
+        // Password Visibility Toggle
+        const togglePassword = document.getElementById('togglePassword');
+        const passwordInput = document.getElementById('password');
+        const visibilityIcon = document.getElementById('visibilityIcon');
+
+        togglePassword.addEventListener('click', function () {
+            const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+            passwordInput.setAttribute('type', type);
+            
+            visibilityIcon.textContent = type === 'password' ? 'visibility' : 'visibility_off';
+            
+            // Add a brief glitch effect to icon
+            visibilityIcon.style.opacity = '0.5';
+            setTimeout(() => {
+                visibilityIcon.style.opacity = '1';
+            }, 100);
+        });
+
+        // Input Focus Effects (Simulating terminal typing readiness)
+        const inputs = document.querySelectorAll('.input-tech');
+        inputs.forEach(input => {
+            input.addEventListener('focus', () => {
+                const label = input.closest('div.flex-col').querySelector('label span:first-child');
+                label.style.color = '#00F3FF';
+                label.style.textShadow = '0 0 5px rgba(0, 243, 255, 0.5)';
+            });
+            input.addEventListener('blur', () => {
+                const label = input.closest('div.flex-col').querySelector('label span:first-child');
+                label.style.color = '';
+                label.style.textShadow = '';
+            });
+        });
+    </script>
+</body></html>

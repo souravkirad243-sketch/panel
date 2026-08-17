@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>CARD//VAULT - Profile Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&amp;family=Inter:wght@100..900&amp;family=JetBrains+Mono:wght@100..800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "inverse-on-surface": "#313030",
+                      "tertiary-fixed": "#efdbff",
+                      "primary": "#efffe3",
+                      "surface-container-low": "#1c1b1b",
+                      "tertiary-fixed-dim": "#dab9ff",
+                      "on-tertiary-fixed": "#2b0053",
+                      "on-secondary": "#00373a",
+                      "surface-container-lowest": "#0e0e0e",
+                      "on-surface-variant": "#baccb0",
+                      "outline": "#85967c",
+                      "tertiary-container": "#ebd5ff",
+                      "inverse-primary": "#106e00",
+                      "surface": "#131313",
+                      "on-primary-fixed": "#022100",
+                      "on-secondary-fixed-variant": "#004f53",
+                      "surface-dim": "#131313",
+                      "secondary-fixed": "#6ff6ff",
+                      "tertiary": "#fff8fe",
+                      "primary-fixed-dim": "#2ae500",
+                      "error": "#ffb4ab",
+                      "inverse-surface": "#e5e2e1",
+                      "error-container": "#93000a",
+                      "surface-tint": "#2ae500",
+                      "on-tertiary-container": "#8900f5",
+                      "surface-bright": "#3a3939",
+                      "on-tertiary": "#470083",
+                      "outline-variant": "#3c4b35",
+                      "primary-container": "#39ff14",
+                      "surface-container": "#201f1f",
+                      "surface-variant": "#353534",
+                      "primary-fixed": "#79ff5b",
+                      "on-secondary-container": "#006a6f",
+                      "on-error-container": "#ffdad6",
+                      "on-primary-fixed-variant": "#095300",
+                      "on-primary-container": "#107100",
+                      "secondary-container": "#00f1fd",
+                      "secondary-fixed-dim": "#00dce6",
+                      "on-error": "#690005",
+                      "background": "#131313",
+                      "on-surface": "#e5e2e1",
+                      "on-tertiary-fixed-variant": "#6500b8",
+                      "on-secondary-fixed": "#002022",
+                      "surface-container-high": "#2a2a2a",
+                      "on-background": "#e5e2e1",
+                      "surface-container-highest": "#353534",
+                      "on-primary": "#053900",
+                      "secondary": "#dcfdff"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "spacing": {
+                      "xs": "8px",
+                      "base": "4px",
+                      "margin-mobile": "16px",
+                      "gutter": "20px",
+                      "lg": "40px",
+                      "sm": "16px",
+                      "xl": "80px",
+                      "margin-desktop": "64px",
+                      "md": "24px"
+              },
+              "fontFamily": {
+                      "technical-sm": [
+                              "JetBrains Mono"
+                      ],
+                      "display-lg": [
+                              "Geist"
+                      ],
+                      "headline-md": [
+                              "Geist"
+                      ],
+                      "display-lg-mobile": [
+                              "Geist"
+                      ],
+                      "label-caps": [
+                              "JetBrains Mono"
+                      ],
+                      "body-md": [
+                              "Inter"
+                      ]
+              },
+              "fontSize": {
+                      "technical-sm": [
+                              "12px",
+                              {
+                                      "lineHeight": "1.5",
+                                      "letterSpacing": "0.05em",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "display-lg": [
+                              "48px",
+                              {
+                                      "lineHeight": "1.1",
+                                      "letterSpacing": "-0.04em",
+                                      "fontWeight": "800"
+                              }
+                      ],
+                      "headline-md": [
+                              "24px",
+                              {
+                                      "lineHeight": "1.4",
+                                      "letterSpacing": "-0.01em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "display-lg-mobile": [
+                              "32px",
+                              {
+                                      "lineHeight": "1.2",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "800"
+                              }
+                      ],
+                      "label-caps": [
+                              "10px",
+                              {
+                                      "lineHeight": "1",
+                                      "letterSpacing": "0.1em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "body-md": [
+                              "16px",
+                              {
+                                      "lineHeight": "1.6",
+                                      "letterSpacing": "0",
+                                      "fontWeight": "400"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+      </script>
+<style>
+        body {
+            background-color: #050505;
+            background-image: 
+                linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+        
+        .glow-hover:hover {
+            box-shadow: 0 0 20px rgba(57, 255, 20, 0.5);
+        }
+        
+        .cyan-glow:focus-within {
+            box-shadow: 0 0 15px rgba(0, 243, 255, 0.3);
+            border-color: #00F3FF;
+        }
+
+        .glass-card {
+            background-color: #121212;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .scanline {
+            width: 100%;
+            height: 100px;
+            z-index: 10;
+            position: absolute;
+            pointer-events: none;
+            background: linear-gradient(0deg, rgba(0,0,0,0) 0%, rgba(57,255,20,0.2) 50%, rgba(0,0,0,0) 100%);
+            opacity: 0.1;
+            animation: scanline 8s linear infinite;
+        }
+        
+        @keyframes scanline {
+            0% { transform: translateY(-100%); }
+            100% { transform: translateY(1000%); }
+        }
+    </style>
+</head>
+<body class="text-on-background font-body-md text-body-md antialiased min-h-screen flex flex-col relative overflow-x-hidden">
+<div class="scanline"></div>
+<!-- TopNavBar -->
+<nav class="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop py-4 sticky top-0 z-50 border-b border-outline-variant bg-surface-container-lowest/80 backdrop-blur-xl shadow-[0_0_15px_rgba(42,229,0,0.1)]">
+<div class="flex items-center gap-md">
+<a class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg tracking-tighter text-primary-fixed-dim uppercase" href="#">
+                CARD//VAULT
+            </a>
+<div class="hidden md:flex gap-md ml-lg">
+<a class="text-on-surface-variant font-technical-sm text-technical-sm hover:text-primary-fixed-dim hover:bg-surface-variant/20 transition-all px-xs py-base rounded" href="#">Deals</a>
+<a class="text-on-surface-variant font-technical-sm text-technical-sm hover:text-primary-fixed-dim hover:bg-surface-variant/20 transition-all px-xs py-base rounded" href="#">Orders</a>
+</div>
+</div>
+<div class="flex items-center gap-md">
+<!-- Search on left of trailing actions as per generic nav patterns, though JSON says 'search_bar: on_left', it typically means left of the actions -->
+<div class="hidden md:flex items-center bg-surface-container-low border border-outline-variant rounded px-sm py-base cyan-glow transition-all">
+<span class="material-symbols-outlined text-secondary-fixed mr-xs text-sm" style="font-variation-settings: 'FILL' 0;">search</span>
+<input class="bg-transparent border-none text-on-surface focus:ring-0 font-technical-sm text-technical-sm w-48 placeholder:text-on-surface-variant/40 outline-none" placeholder="QUERY_DB..." type="text"/>
+</div>
+<button class="text-primary-fixed-dim hover:text-primary-fixed-dim hover:bg-surface-variant/20 transition-all p-xs rounded">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">shopping_cart</span>
+</button>
+<!-- Active state context logic: User is on Profile Dashboard -->
+<button class="text-primary-fixed font-bold border-b-2 border-primary-fixed scale-95 duration-100 p-xs transition-all">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">account_circle</span>
+</button>
+</div>
+</nav>
+<!-- Main Content Area -->
+<main class="flex-1 w-full max-w-[1440px] mx-auto px-margin-mobile md:px-margin-desktop py-lg grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<!-- Sidebar -->
+<aside class="md:col-span-3 lg:col-span-2 flex flex-col gap-sm relative">
+<div class="sticky top-24">
+<div class="glass-card p-sm rounded-lg flex flex-col gap-xs">
+<div class="pb-xs mb-xs border-b border-outline-variant">
+<span class="font-label-caps text-label-caps text-secondary-fixed/70">TERMINAL//NAV</span>
+</div>
+<a class="flex items-center gap-sm px-sm py-xs rounded bg-surface-variant/20 text-secondary-fixed border-l-2 border-secondary-fixed shadow-[0_0_15px_rgba(0,243,255,0.1)] transition-all" href="#">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 0;">dashboard</span>
+<span class="font-technical-sm text-technical-sm">Overview</span>
+</a>
+<a class="flex items-center gap-sm px-sm py-xs rounded text-on-surface-variant hover:text-secondary-fixed hover:bg-surface-variant/20 hover:border-l-2 hover:border-secondary-fixed/50 transition-all border-l-2 border-transparent" href="#">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 0;">receipt_long</span>
+<span class="font-technical-sm text-technical-sm">My Orders</span>
+</a>
+<a class="flex items-center gap-sm px-sm py-xs rounded text-on-surface-variant hover:text-secondary-fixed hover:bg-surface-variant/20 hover:border-l-2 hover:border-secondary-fixed/50 transition-all border-l-2 border-transparent" href="#">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 0;">download</span>
+<span class="font-technical-sm text-technical-sm">Digital Purchases</span>
+</a>
+<a class="flex items-center gap-sm px-sm py-xs rounded text-on-surface-variant hover:text-secondary-fixed hover:bg-surface-variant/20 hover:border-l-2 hover:border-secondary-fixed/50 transition-all border-l-2 border-transparent" href="#">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 0;">favorite</span>
+<span class="font-technical-sm text-technical-sm">Wishlist</span>
+</a>
+<div class="pt-sm pb-xs mt-xs border-b border-outline-variant">
+<span class="font-label-caps text-label-caps text-secondary-fixed/70">FINANCE</span>
+</div>
+<a class="flex items-center gap-sm px-sm py-xs rounded text-on-surface-variant hover:text-secondary-fixed hover:bg-surface-variant/20 hover:border-l-2 hover:border-secondary-fixed/50 transition-all border-l-2 border-transparent" href="#">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 0;">credit_card</span>
+<span class="font-technical-sm text-technical-sm">Saved Cards</span>
+</a>
+<a class="flex items-center gap-sm px-sm py-xs rounded text-on-surface-variant hover:text-secondary-fixed hover:bg-surface-variant/20 hover:border-l-2 hover:border-secondary-fixed/50 transition-all border-l-2 border-transparent" href="#">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 0;">account_balance_wallet</span>
+<span class="font-technical-sm text-technical-sm">Payment Methods</span>
+</a>
+<div class="pt-sm pb-xs mt-xs border-b border-outline-variant">
+<span class="font-label-caps text-label-caps text-secondary-fixed/70">SYSTEM</span>
+</div>
+<a class="flex items-center gap-sm px-sm py-xs rounded text-on-surface-variant hover:text-secondary-fixed hover:bg-surface-variant/20 hover:border-l-2 hover:border-secondary-fixed/50 transition-all border-l-2 border-transparent" href="#">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 0;">security</span>
+<span class="font-technical-sm text-technical-sm">Security</span>
+</a>
+<a class="flex items-center gap-sm px-sm py-xs rounded text-on-surface-variant hover:text-secondary-fixed hover:bg-surface-variant/20 hover:border-l-2 hover:border-secondary-fixed/50 transition-all border-l-2 border-transparent" href="#">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 0;">settings</span>
+<span class="font-technical-sm text-technical-sm">Settings</span>
+</a>
+</div>
+</div>
+</aside>
+<!-- Dashboard Content -->
+<section class="md:col-span-9 lg:col-span-10 flex flex-col gap-gutter">
+<!-- Header Section -->
+<div class="glass-card p-md rounded-lg flex flex-col md:flex-row justify-between items-start md:items-center gap-md relative overflow-hidden">
+<!-- Decorative background elements -->
+<div class="absolute right-0 top-0 w-64 h-64 bg-primary-container/5 blur-[100px] pointer-events-none"></div>
+<div class="absolute left-0 bottom-0 w-32 h-32 bg-secondary-fixed/10 blur-[80px] pointer-events-none"></div>
+<div class="flex items-center gap-md z-10">
+<div class="relative w-16 h-16 md:w-24 md:h-24 rounded border border-secondary-fixed/30 bg-surface-container-low flex items-center justify-center p-xs overflow-hidden group">
+<div class="absolute inset-0 bg-secondary-fixed/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+<img class="w-full h-full object-cover rounded-sm grayscale group-hover:grayscale-0 transition-all duration-500" data-alt="A highly detailed avatar image of a cyberpunk character wearing high-tech visors. The lighting is moody, with harsh cyan and neon green highlights against deep charcoal shadows. The aesthetic is purely digital, high-fidelity, and secure." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAhi6wMKPTFjA39Nt88aUxNsS9gKLJ-81FmOnIdyQr2qEBwGCaescH1TIIeOvyQkvBOeXsBRFNTKfPj_H4_dwHQywutXDu-1J0W3_qMYDar0omg-aHxtNC8o0igCeMWtjW0UNp-noW2Ogucyl6xdKbCuVjITCxcDBXyXeNuNGC3V3R09IAYaC7wTr2WaHruGIusSrVulyoF6l22lDO6Ep2kzKGy1BxyR998oLsgxCnJ9x6OAcgpz86g"/>
+<div class="absolute bottom-0 right-0 w-3 h-3 bg-primary-container border border-surface rounded-full shadow-[0_0_10px_rgba(57,255,20,0.8)] m-1"></div>
+</div>
+<div class="flex flex-col gap-xs">
+<h1 class="font-headline-md text-headline-md text-on-surface flex items-center gap-xs">
+                            Cipher_X
+                            <span class="material-symbols-outlined text-secondary-fixed text-sm" style="font-variation-settings: 'FILL' 1;" title="Verified User">verified</span>
+</h1>
+<div class="flex items-center gap-sm">
+<span class="font-technical-sm text-technical-sm text-on-surface-variant flex items-center gap-xs">
+<span class="material-symbols-outlined text-xs" style="font-variation-settings: 'FILL' 0;">fingerprint</span>
+                                ID: <span class="text-secondary-fixed">#88A4-9F2B</span>
+</span>
+<span class="font-technical-sm text-technical-sm text-on-surface-variant hidden md:flex items-center gap-xs">
+<span class="material-symbols-outlined text-xs" style="font-variation-settings: 'FILL' 0;">schedule</span>
+                                LAST_SYNC: 2024.10.24-14:32:00
+                            </span>
+</div>
+</div>
+</div>
+<div class="flex flex-col md:items-end gap-xs z-10 w-full md:w-auto">
+<div class="glass-card px-sm py-xs rounded flex items-center gap-sm w-full md:w-auto justify-between border-primary-fixed/20 bg-primary-fixed/5">
+<div class="flex items-center gap-xs">
+<div class="w-2 h-2 bg-primary-container rounded-full animate-pulse shadow-[0_0_8px_rgba(57,255,20,0.6)]"></div>
+<span class="font-label-caps text-label-caps text-primary-fixed">SECURITY STATUS</span>
+</div>
+<span class="font-technical-sm text-technical-sm text-on-surface">2FA ACTIVE</span>
+</div>
+<button class="w-full md:w-auto bg-primary-container text-on-primary font-technical-sm text-technical-sm px-md py-xs rounded glow-hover transition-all duration-300">
+                        &gt; INITIATE_TRADE
+                    </button>
+</div>
+</div>
+<!-- Stats Grid -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<!-- Total Orders -->
+<div class="glass-card p-md rounded-lg flex flex-col gap-sm hover:bg-surface-container-high/50 transition-colors border-t-2 border-t-transparent hover:border-t-secondary-fixed relative overflow-hidden group">
+<div class="absolute inset-0 bg-gradient-to-br from-secondary-fixed/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+<div class="flex justify-between items-start">
+<span class="font-label-caps text-label-caps text-on-surface-variant">TOTAL ORDERS</span>
+<div class="w-8 h-8 rounded border border-secondary-fixed/20 flex items-center justify-center bg-surface-container-lowest text-secondary-fixed">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 0;">inventory_2</span>
+</div>
+</div>
+<div class="flex items-end gap-sm mt-auto">
+<span class="font-display-lg text-display-lg text-on-surface">142</span>
+<span class="font-technical-sm text-technical-sm text-primary-fixed-dim mb-1 flex items-center">
+<span class="material-symbols-outlined text-xs" style="font-variation-settings: 'FILL' 0;">arrow_upward</span> 12%
+                        </span>
+</div>
+<!-- Segmented decorative bar -->
+<div class="w-full h-1 bg-surface-container flex gap-[2px]">
+<div class="h-full w-full bg-secondary-fixed/40"></div>
+<div class="h-full w-full bg-secondary-fixed/40"></div>
+<div class="h-full w-full bg-secondary-fixed/40"></div>
+<div class="h-full w-full bg-secondary-fixed/40"></div>
+<div class="h-full w-full bg-secondary-fixed/40"></div>
+<div class="h-full w-full bg-surface-container-high"></div>
+<div class="h-full w-full bg-surface-container-high"></div>
+</div>
+</div>
+<!-- Active Purchases -->
+<div class="glass-card p-md rounded-lg flex flex-col gap-sm hover:bg-surface-container-high/50 transition-colors border-t-2 border-t-transparent hover:border-t-primary-fixed relative overflow-hidden group">
+<div class="absolute inset-0 bg-gradient-to-br from-primary-fixed/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+<div class="flex justify-between items-start">
+<span class="font-label-caps text-label-caps text-on-surface-variant">ACTIVE PURCHASES</span>
+<div class="w-8 h-8 rounded border border-primary-fixed/20 flex items-center justify-center bg-surface-container-lowest text-primary-fixed">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 0;">local_shipping</span>
+</div>
+</div>
+<div class="flex items-end gap-sm mt-auto">
+<span class="font-display-lg text-display-lg text-on-surface">03</span>
+<span class="font-technical-sm text-technical-sm text-on-surface-variant mb-1">IN_TRANSIT</span>
+</div>
+<!-- Segmented decorative bar -->
+<div class="w-full h-1 bg-surface-container flex gap-[2px]">
+<div class="h-full w-full bg-primary-fixed/60"></div>
+<div class="h-full w-full bg-primary-fixed/60"></div>
+<div class="h-full w-full bg-surface-container-high"></div>
+<div class="h-full w-full bg-surface-container-high"></div>
+<div class="h-full w-full bg-surface-container-high"></div>
+<div class="h-full w-full bg-surface-container-high"></div>
+<div class="h-full w-full bg-surface-container-high"></div>
+</div>
+</div>
+<!-- Wishlist Count -->
+<div class="glass-card p-md rounded-lg flex flex-col gap-sm hover:bg-surface-container-high/50 transition-colors border-t-2 border-t-transparent hover:border-t-tertiary-fixed relative overflow-hidden group">
+<div class="absolute inset-0 bg-gradient-to-br from-tertiary-fixed/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+<div class="flex justify-between items-start">
+<span class="font-label-caps text-label-caps text-on-surface-variant">WISHLIST COUNT</span>
+<div class="w-8 h-8 rounded border border-tertiary-fixed/20 flex items-center justify-center bg-surface-container-lowest text-tertiary-fixed">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 0;">bookmarks</span>
+</div>
+</div>
+<div class="flex items-end gap-sm mt-auto">
+<span class="font-display-lg text-display-lg text-on-surface">24</span>
+<span class="font-technical-sm text-technical-sm text-on-surface-variant mb-1">ITEMS</span>
+</div>
+<!-- Segmented decorative bar -->
+<div class="w-full h-1 bg-surface-container flex gap-[2px]">
+<div class="h-full w-full bg-tertiary-fixed/40"></div>
+<div class="h-full w-full bg-tertiary-fixed/40"></div>
+<div class="h-full w-full bg-tertiary-fixed/40"></div>
+<div class="h-full w-full bg-surface-container-high"></div>
+<div class="h-full w-full bg-surface-container-high"></div>
+<div class="h-full w-full bg-surface-container-high"></div>
+<div class="h-full w-full bg-surface-container-high"></div>
+</div>
+</div>
+</div>
+<!-- Recent Activity Bento -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-gutter">
+<div class="glass-card p-md rounded-lg lg:col-span-2 flex flex-col gap-sm min-h-[300px]">
+<div class="flex justify-between items-center pb-sm border-b border-outline-variant">
+<h2 class="font-headline-md text-headline-md text-on-surface">Recent Activity Feed</h2>
+<button class="font-technical-sm text-technical-sm text-secondary-fixed hover:text-secondary-fixed-dim transition-colors border border-secondary-fixed/30 px-xs py-base rounded hover:bg-secondary-fixed/10">
+                            VIEW_ALL
+                        </button>
+</div>
+<div class="flex flex-col gap-xs pt-xs">
+<div class="flex items-center gap-sm p-sm bg-surface-container-lowest/50 rounded border border-transparent hover:border-outline-variant transition-colors group">
+<div class="w-10 h-10 rounded bg-primary-container/10 border border-primary-fixed/20 flex items-center justify-center text-primary-fixed flex-shrink-0">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 0;">check_circle</span>
+</div>
+<div class="flex-1 min-w-0">
+<p class="font-body-md text-body-md text-on-surface truncate">Order <span class="font-technical-sm text-technical-sm text-secondary-fixed">#ORD-992-X</span> delivered successfully.</p>
+<p class="font-technical-sm text-technical-sm text-on-surface-variant mt-1">LOG: 2024.10.23-09:14:02</p>
+</div>
+</div>
+<div class="flex items-center gap-sm p-sm bg-surface-container-lowest/50 rounded border border-transparent hover:border-outline-variant transition-colors group">
+<div class="w-10 h-10 rounded bg-tertiary-fixed/10 border border-tertiary-fixed/20 flex items-center justify-center text-tertiary-fixed flex-shrink-0">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 0;">new_releases</span>
+</div>
+<div class="flex-1 min-w-0">
+<p class="font-body-md text-body-md text-on-surface truncate">Item <span class="font-technical-sm text-technical-sm text-secondary-fixed">Cyber_Relic_v2</span> added to wishlist.</p>
+<p class="font-technical-sm text-technical-sm text-on-surface-variant mt-1">LOG: 2024.10.22-18:45:11</p>
+</div>
+</div>
+<div class="flex items-center gap-sm p-sm bg-surface-container-lowest/50 rounded border border-transparent hover:border-outline-variant transition-colors group">
+<div class="w-10 h-10 rounded bg-surface-container-highest border border-outline-variant flex items-center justify-center text-on-surface-variant flex-shrink-0">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 0;">login</span>
+</div>
+<div class="flex-1 min-w-0">
+<p class="font-body-md text-body-md text-on-surface truncate">New login detected from <span class="font-technical-sm text-technical-sm text-secondary-fixed">192.168.x.x</span>.</p>
+<p class="font-technical-sm text-technical-sm text-on-surface-variant mt-1">LOG: 2024.10.21-22:01:45</p>
+</div>
+</div>
+</div>
+</div>
+<div class="glass-card p-md rounded-lg flex flex-col gap-sm relative overflow-hidden group">
+<div class="absolute top-0 right-0 p-sm opacity-10">
+<span class="material-symbols-outlined text-display-lg" style="font-size: 100px; font-variation-settings: 'FILL' 0;">qr_code_scanner</span>
+</div>
+<div class="flex flex-col h-full justify-between z-10 relative">
+<div>
+<span class="font-label-caps text-label-caps text-secondary-fixed mb-sm block">QUICK ACCESS</span>
+<h3 class="font-headline-md text-headline-md text-on-surface">Vault Card ID</h3>
+<p class="font-technical-sm text-technical-sm text-on-surface-variant mt-xs">Scan to authorize physical terminal access.</p>
+</div>
+<div class="mt-md bg-surface-container-lowest p-sm rounded border border-outline-variant flex flex-col items-center justify-center gap-sm">
+<!-- Simulated barcode/QR area -->
+<div class="w-full h-16 flex justify-between gap-[2px] opacity-80">
+<div class="w-2 h-full bg-on-surface"></div>
+<div class="w-1 h-full bg-on-surface"></div>
+<div class="w-3 h-full bg-on-surface"></div>
+<div class="w-1 h-full bg-on-surface"></div>
+<div class="w-2 h-full bg-on-surface"></div>
+<div class="w-1 h-full bg-on-surface"></div>
+<div class="w-4 h-full bg-on-surface"></div>
+<div class="w-1 h-full bg-on-surface"></div>
+<div class="w-2 h-full bg-on-surface"></div>
+<div class="w-1 h-full bg-on-surface"></div>
+<div class="w-2 h-full bg-on-surface"></div>
+<div class="w-1 h-full bg-on-surface"></div>
+<div class="w-3 h-full bg-on-surface"></div>
+</div>
+<span class="font-technical-sm text-technical-sm tracking-[0.2em] text-secondary-fixed font-bold">CX-88A4-9F2B</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full px-margin-mobile md:px-margin-desktop py-xl flex flex-col gap-md border-t border-outline-variant bg-background mt-auto z-10 relative">
+<div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-md">
+<div class="font-display-lg text-display-lg text-primary-fixed-dim">
+                CARD//VAULT
+            </div>
+<div class="flex flex-wrap gap-md">
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-secondary-fixed transition-colors" href="#">SECURE CHECKOUT</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-secondary-fixed transition-colors" href="#">VERIFIED SELLERS</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-secondary-fixed transition-colors" href="#">TERMS_OF_SERVICE</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-secondary-fixed transition-colors" href="#">PRIVACY_ENCRYPTION</a>
+</div>
+</div>
+<div class="font-technical-sm text-technical-sm text-on-surface-variant mt-sm">
+            © 2024 CARD//VAULT TERMINAL. ALL RIGHTS RESERVED.
+        </div>
+</footer>
+</body></html>

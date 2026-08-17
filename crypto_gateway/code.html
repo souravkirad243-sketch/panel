@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>CARD//VAULT - Crypto Checkout</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&amp;family=Inter:wght@100..900&amp;family=JetBrains+Mono:wght@100..800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "inverse-on-surface": "#313030",
+                        "tertiary-fixed": "#efdbff",
+                        "primary": "#efffe3",
+                        "surface-container-low": "#1c1b1b",
+                        "tertiary-fixed-dim": "#dab9ff",
+                        "on-tertiary-fixed": "#2b0053",
+                        "on-secondary": "#00373a",
+                        "surface-container-lowest": "#0e0e0e",
+                        "on-surface-variant": "#baccb0",
+                        "outline": "#85967c",
+                        "tertiary-container": "#ebd5ff",
+                        "inverse-primary": "#106e00",
+                        "surface": "#131313",
+                        "on-primary-fixed": "#022100",
+                        "on-secondary-fixed-variant": "#004f53",
+                        "surface-dim": "#131313",
+                        "secondary-fixed": "#6ff6ff",
+                        "tertiary": "#fff8fe",
+                        "primary-fixed-dim": "#2ae500",
+                        "error": "#ffb4ab",
+                        "inverse-surface": "#e5e2e1",
+                        "error-container": "#93000a",
+                        "surface-tint": "#2ae500",
+                        "on-tertiary-container": "#8900f5",
+                        "surface-bright": "#3a3939",
+                        "on-tertiary": "#470083",
+                        "outline-variant": "#3c4b35",
+                        "primary-container": "#39ff14",
+                        "surface-container": "#201f1f",
+                        "surface-variant": "#353534",
+                        "primary-fixed": "#79ff5b",
+                        "on-secondary-container": "#006a6f",
+                        "on-error-container": "#ffdad6",
+                        "on-primary-fixed-variant": "#095300",
+                        "on-primary-container": "#107100",
+                        "secondary-container": "#00f1fd",
+                        "secondary-fixed-dim": "#00dce6",
+                        "on-error": "#690005",
+                        "background": "#131313",
+                        "on-surface": "#e5e2e1",
+                        "on-tertiary-fixed-variant": "#6500b8",
+                        "on-secondary-fixed": "#002022",
+                        "surface-container-high": "#2a2a2a",
+                        "on-background": "#e5e2e1",
+                        "surface-container-highest": "#353534",
+                        "on-primary": "#053900",
+                        "secondary": "#dcfdff"
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    spacing: {
+                        "xs": "8px",
+                        "base": "4px",
+                        "margin-mobile": "16px",
+                        "gutter": "20px",
+                        "lg": "40px",
+                        "sm": "16px",
+                        "xl": "80px",
+                        "margin-desktop": "64px",
+                        "md": "24px"
+                    },
+                    fontFamily: {
+                        "technical-sm": ["JetBrains Mono"],
+                        "display-lg": ["Geist"],
+                        "headline-md": ["Geist"],
+                        "display-lg-mobile": ["Geist"],
+                        "label-caps": ["JetBrains Mono"],
+                        "body-md": ["Inter"]
+                    },
+                    fontSize: {
+                        "technical-sm": ["12px", { lineHeight: "1.5", letterSpacing: "0.05em", fontWeight: "500" }],
+                        "display-lg": ["48px", { lineHeight: "1.1", letterSpacing: "-0.04em", fontWeight: "800" }],
+                        "headline-md": ["24px", { lineHeight: "1.4", letterSpacing: "-0.01em", fontWeight: "600" }],
+                        "display-lg-mobile": ["32px", { lineHeight: "1.2", letterSpacing: "-0.02em", fontWeight: "800" }],
+                        "label-caps": ["10px", { lineHeight: "1", letterSpacing: "0.1em", fontWeight: "700" }],
+                        "body-md": ["16px", { lineHeight: "1.6", letterSpacing: "0", fontWeight: "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body {
+            background-color: #050505;
+            background-image: 
+                linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+        .vault-card {
+            background-color: #121212;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            position: relative;
+        }
+        .cyan-glow {
+            box-shadow: 0 0 15px rgba(0, 243, 255, 0.15);
+        }
+        .neon-green-btn {
+            background-color: #39FF14;
+            color: #000;
+            transition: all 0.2s ease;
+        }
+        .neon-green-btn:hover {
+            box-shadow: 0 0 20px rgba(57, 255, 20, 0.5);
+        }
+        .secondary-outline-btn {
+            border: 1px solid #00F3FF;
+            color: #00F3FF;
+            transition: all 0.2s ease;
+        }
+        .secondary-outline-btn:hover {
+            background-color: rgba(0, 243, 255, 0.1);
+        }
+    </style>
+</head>
+<body class="text-on-background min-h-screen flex flex-col font-body-md">
+<!-- TopNavBar -->
+<nav class="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop py-4 sticky top-0 z-50 border-b border-outline-variant bg-surface-container-lowest/80 backdrop-blur-xl shadow-[0_0_15px_rgba(42,229,0,0.1)]">
+<div class="flex items-center gap-md">
+<span class="font-display-lg text-display-lg-mobile tracking-tighter text-primary-fixed-dim uppercase">CARD//VAULT</span>
+</div>
+</nav>
+<!-- Main Content -->
+<main class="flex-grow flex items-center justify-center p-margin-mobile md:p-margin-desktop w-full max-w-[1440px] mx-auto">
+<div class="vault-card w-full max-w-5xl rounded-DEFAULT p-md md:p-lg grid grid-cols-1 md:grid-cols-2 gap-xl relative overflow-hidden">
+<!-- Scanline Overlay -->
+<div class="absolute inset-0 pointer-events-none opacity-[0.03] bg-[linear-gradient(transparent_50%,rgba(0,0,0,1)_50%)] bg-[length:100%_4px]"></div>
+<!-- Left Column: QR & Network -->
+<div class="flex flex-col gap-lg z-10">
+<div class="space-y-sm">
+<h1 class="font-headline-md text-headline-md text-on-surface">SECURE PAYMENT</h1>
+<p class="font-technical-sm text-technical-sm text-on-surface-variant flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px] text-secondary-fixed">timer</span>
+                        PRICE LOCKED FOR <span class="text-secondary-fixed font-bold" id="countdown">14:59</span>
+</p>
+</div>
+<!-- Network Selection -->
+<div class="space-y-xs">
+<label class="font-label-caps text-label-caps text-on-surface-variant">SELECT NETWORK</label>
+<div class="flex gap-sm">
+<button class="secondary-outline-btn flex-1 py-xs rounded-DEFAULT font-technical-sm text-technical-sm bg-[rgba(0,243,255,0.1)]">ETH</button>
+<button class="border border-outline-variant text-on-surface-variant hover:border-secondary-fixed hover:text-secondary-fixed flex-1 py-xs rounded-DEFAULT font-technical-sm text-technical-sm transition-colors">USDT</button>
+<button class="border border-outline-variant text-on-surface-variant hover:border-secondary-fixed hover:text-secondary-fixed flex-1 py-xs rounded-DEFAULT font-technical-sm text-technical-sm transition-colors">BTC</button>
+</div>
+</div>
+<!-- QR Code Area -->
+<div class="flex flex-col items-center justify-center p-lg border border-outline-variant rounded-DEFAULT bg-surface-container-low relative group">
+<div class="w-48 h-48 bg-white p-xs rounded-sm relative z-10 cyan-glow transition-all duration-300">
+<img class="w-full h-full object-cover" data-alt="A high-contrast, cyberpunk-style QR code graphic. The QR code is rendered in stark black and white, but features subtle cyan glowing artifacts and digital distortion along the edges. It is presented as a secure, high-tech terminal scanning element, suggesting encrypted cryptocurrency transaction data." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBsTFiopY29Ail2jBSbvgFTDy5zVY5_2s7I0zo994yh9V5EczkhRETjOP0_7rd7FseaSIlQLCjMEzArgMixqAFbTISrZ2m61nhBlHPLIEK3dmR4ZQsEiuzlZVqxplxAFOtIau0A-GtvNIziMIQQdYaFV_fJtXx7QnpPWY7CqHKnwe5uk5SAE1qAkKPBIDW1WiHce-ch3HRnbamUoGrlms5h0bZ41kzFsTPfN-ysd7jSffXkat05Lte4"/>
+</div>
+<div class="absolute inset-0 bg-secondary-fixed/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+</div>
+<div class="flex items-start gap-sm p-sm border border-[rgba(255,180,171,0.2)] bg-error-container/10 rounded-DEFAULT">
+<span class="material-symbols-outlined text-error mt-0.5" style="font-variation-settings: 'FILL' 1;">warning</span>
+<p class="font-technical-sm text-technical-sm text-error">Send only using the ERC-20 network. Sending any other currency to this address may result in permanent loss.</p>
+</div>
+</div>
+<!-- Right Column: Details & Timeline -->
+<div class="flex flex-col gap-lg z-10 justify-between">
+<!-- Transaction Details -->
+<div class="space-y-md">
+<div class="space-y-xs pb-sm border-b border-outline-variant">
+<label class="font-label-caps text-label-caps text-on-surface-variant">AMOUNT TO SEND</label>
+<div class="flex items-end justify-between">
+<span class="font-headline-md text-headline-md text-primary-container">1.45 ETH</span>
+<span class="font-technical-sm text-technical-sm text-on-surface-variant">≈ $4,250.00 USD</span>
+</div>
+</div>
+<div class="space-y-xs pb-sm border-b border-outline-variant">
+<label class="font-label-caps text-label-caps text-on-surface-variant">EXCHANGE RATE</label>
+<div class="font-technical-sm text-technical-sm text-on-surface">1 ETH = $2,931.03 USD</div>
+</div>
+<div class="space-y-xs">
+<label class="font-label-caps text-label-caps text-on-surface-variant">RECIPIENT ADDRESS</label>
+<div class="flex items-center gap-sm bg-surface-container-low border border-outline-variant rounded-DEFAULT p-xs pl-sm">
+<code class="font-technical-sm text-technical-sm text-secondary-fixed truncate flex-1">0x71C...976F</code>
+<button class="p-xs hover:bg-surface-variant rounded-sm text-on-surface transition-colors" title="Copy Address">
+<span class="material-symbols-outlined text-[18px]">content_copy</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Status Timeline -->
+<div class="mt-xl p-md border border-outline-variant bg-surface-container-lowest rounded-DEFAULT">
+<h3 class="font-label-caps text-label-caps text-on-surface-variant mb-md">TRANSACTION STATUS</h3>
+<div class="flex flex-col gap-md relative">
+<!-- Connecting Line -->
+<div class="absolute left-[11px] top-[14px] bottom-[14px] w-[2px] bg-outline-variant"></div>
+<!-- Step 1: Active -->
+<div class="flex items-center gap-sm relative z-10">
+<div class="w-6 h-6 rounded-full bg-surface border-2 border-secondary-fixed flex items-center justify-center cyan-glow">
+<div class="w-2 h-2 rounded-full bg-secondary-fixed animate-pulse"></div>
+</div>
+<span class="font-technical-sm text-technical-sm text-secondary-fixed">AWAITING PAYMENT</span>
+</div>
+<!-- Step 2: Pending -->
+<div class="flex items-center gap-sm relative z-10">
+<div class="w-6 h-6 rounded-full bg-surface border-2 border-outline-variant flex items-center justify-center">
+</div>
+<span class="font-technical-sm text-technical-sm text-on-surface-variant">CONFIRMING</span>
+</div>
+<!-- Step 3: Pending -->
+<div class="flex items-center gap-sm relative z-10">
+<div class="w-6 h-6 rounded-full bg-surface border-2 border-outline-variant flex items-center justify-center">
+</div>
+<span class="font-technical-sm text-technical-sm text-on-surface-variant">COMPLETE</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="w-full px-margin-mobile md:px-margin-desktop py-xl flex flex-col gap-md border-t border-outline-variant bg-surface-container-lowest">
+<div class="font-display-lg text-display-lg text-primary-fixed-dim">CARD//VAULT</div>
+<div class="flex flex-wrap gap-md">
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-secondary-fixed transition-colors" href="#">SECURE CHECKOUT</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-secondary-fixed transition-colors" href="#">VERIFIED SELLERS</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-secondary-fixed transition-colors" href="#">TERMS_OF_SERVICE</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-secondary-fixed transition-colors" href="#">PRIVACY_ENCRYPTION</a>
+</div>
+<div class="font-technical-sm text-technical-sm text-on-surface-variant">© 2024 CARD//VAULT TERMINAL. ALL RIGHTS RESERVED.</div>
+</footer>
+<script>
+        // Simple countdown logic
+        let timeLeft = 14 * 60 + 59; // 14:59
+        const countdownEl = document.getElementById('countdown');
+        
+        setInterval(() => {
+            if(timeLeft <= 0) return;
+            timeLeft--;
+            const minutes = Math.floor(timeLeft / 60);
+            const seconds = timeLeft % 60;
+            countdownEl.textContent = `${minutes}:${seconds.toString().padStart(2, '0')}`;
+        }, 1000);
+    </script>
+</body></html>

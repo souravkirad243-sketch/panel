@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>CARD//VAULT - Update Passkey</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;600;800&amp;family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-tertiary-fixed": "#2b0053",
+                        "surface-container": "#201f1f",
+                        "surface-variant": "#353534",
+                        "surface-container-high": "#2a2a2a",
+                        "on-surface-variant": "#baccb0",
+                        "on-tertiary": "#470083",
+                        "surface": "#131313",
+                        "inverse-on-surface": "#313030",
+                        "surface-bright": "#3a3939",
+                        "on-surface": "#e5e2e1",
+                        "primary-container": "#39ff14",
+                        "outline-variant": "#3c4b35",
+                        "tertiary-fixed-dim": "#dab9ff",
+                        "surface-tint": "#2ae500",
+                        "on-secondary-fixed": "#002022",
+                        "on-primary-fixed": "#022100",
+                        "on-primary-container": "#107100",
+                        "tertiary": "#fff8fe",
+                        "on-secondary-fixed-variant": "#004f53",
+                        "on-tertiary-fixed-variant": "#6500b8",
+                        "error": "#ffb4ab",
+                        "secondary-fixed-dim": "#00dce6",
+                        "primary-fixed": "#79ff5b",
+                        "on-error": "#690005",
+                        "surface-dim": "#131313",
+                        "on-background": "#e5e2e1",
+                        "tertiary-container": "#ebd5ff",
+                        "inverse-surface": "#e5e2e1",
+                        "surface-container-lowest": "#0e0e0e",
+                        "tertiary-fixed": "#efdbff",
+                        "on-primary": "#053900",
+                        "background": "#131313",
+                        "on-primary-fixed-variant": "#095300",
+                        "primary-fixed-dim": "#2ae500",
+                        "secondary-container": "#00f1fd",
+                        "secondary": "#dcfdff",
+                        "on-secondary": "#00373a",
+                        "on-tertiary-container": "#8900f5",
+                        "outline": "#85967c",
+                        "secondary-fixed": "#6ff6ff",
+                        "primary": "#efffe3",
+                        "surface-container-highest": "#353534",
+                        "error-container": "#93000a",
+                        "surface-container-low": "#1c1b1b",
+                        "inverse-primary": "#106e00",
+                        "on-secondary-container": "#006a6f",
+                        "on-error-container": "#ffdad6"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "sm": "16px",
+                        "margin-desktop": "64px",
+                        "base": "4px",
+                        "md": "24px",
+                        "lg": "40px",
+                        "gutter": "20px",
+                        "margin-mobile": "16px",
+                        "xs": "8px",
+                        "xl": "80px"
+                    },
+                    "fontFamily": {
+                        "technical-sm": ["JetBrains Mono"],
+                        "body-md": ["Inter"],
+                        "headline-md": ["Geist"],
+                        "display-lg-mobile": ["Geist"],
+                        "label-caps": ["JetBrains Mono"],
+                        "display-lg": ["Geist"]
+                    },
+                    "fontSize": {
+                        "technical-sm": ["12px", { "lineHeight": "1.5", "letterSpacing": "0.05em", "fontWeight": "500" }],
+                        "body-md": ["16px", { "lineHeight": "1.6", "letterSpacing": "0", "fontWeight": "400" }],
+                        "headline-md": ["24px", { "lineHeight": "1.4", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "display-lg-mobile": ["32px", { "lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+                        "label-caps": ["10px", { "lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "700" }],
+                        "display-lg": ["48px", { "lineHeight": "1.1", "letterSpacing": "-0.04em", "fontWeight": "800" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body {
+            background-color: #050505;
+            background-image: 
+                linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+        .glow-input:focus {
+            box-shadow: 0 0 15px rgba(0, 243, 255, 0.3);
+            border-color: #00f3ff;
+        }
+        .btn-primary:hover {
+            box-shadow: 0 0 20px rgba(57, 255, 20, 0.5);
+        }
+    </style>
+</head>
+<body class="text-on-background min-h-screen flex flex-col items-center justify-center p-margin-mobile md:p-margin-desktop relative overflow-hidden">
+<!-- Ambient Glow -->
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80vw] h-[80vw] max-w-[800px] max-h-[800px] bg-secondary-container opacity-[0.03] rounded-full blur-[100px] pointer-events-none"></div>
+<!-- Main Vault Card -->
+<main class="w-full max-w-[500px] bg-surface border border-outline/20 backdrop-blur-xl relative z-10 p-md md:p-lg flex flex-col gap-lg shadow-[0_0_40px_rgba(0,0,0,0.5)]">
+<!-- Header -->
+<header class="text-center flex flex-col gap-xs">
+<h1 class="font-display-lg-mobile text-display-lg-mobile md:font-display-lg md:text-display-lg text-primary-fixed-dim tracking-tighter">CARD//VAULT</h1>
+<p class="font-technical-sm text-technical-sm text-secondary-fixed-dim uppercase tracking-widest">&gt; INITIATING RECOVERY PROTOCOL</p>
+</header>
+<!-- Form Area -->
+<form class="flex flex-col gap-md" id="recovery-form">
+<div class="flex flex-col gap-xs">
+<label class="font-label-caps text-label-caps text-on-surface-variant" for="new-passkey">NEW PASSKEY</label>
+<div class="relative">
+<input class="glow-input w-full bg-surface-container border-b border-outline-variant text-on-surface font-technical-sm text-technical-sm p-sm focus:outline-none transition-all placeholder:text-on-surface-variant/40" id="new-passkey" placeholder="ENTER NEW PASSKEY" type="password"/>
+<span class="material-symbols-outlined absolute right-sm top-1/2 -translate-y-1/2 text-secondary-fixed-dim" style="font-variation-settings: 'FILL' 1;">lock</span>
+</div>
+</div>
+<div class="flex flex-col gap-xs">
+<label class="font-label-caps text-label-caps text-on-surface-variant" for="confirm-passkey">CONFIRM PASSKEY</label>
+<div class="relative">
+<input class="glow-input w-full bg-surface-container border-b border-outline-variant text-on-surface font-technical-sm text-technical-sm p-sm focus:outline-none transition-all placeholder:text-on-surface-variant/40" id="confirm-passkey" placeholder="VERIFY NEW PASSKEY" type="password"/>
+<span class="material-symbols-outlined absolute right-sm top-1/2 -translate-y-1/2 text-secondary-fixed-dim" style="font-variation-settings: 'FILL' 1;">enhanced_encryption</span>
+</div>
+</div>
+<!-- Terminal Logs / Validation -->
+<div class="bg-surface-container-lowest p-sm border border-outline-variant/30 font-technical-sm text-technical-sm flex flex-col gap-base mt-sm">
+<div class="text-on-surface-variant">&gt; SYSTEM CHECK: PASSKEY REQUIREMENTS</div>
+<div class="text-error flex items-center gap-xs" id="req-length">
+<span class="material-symbols-outlined text-[14px]">close</span> LENGTH &gt;= 12 CHARACTERS
+                </div>
+<div class="text-error flex items-center gap-xs" id="req-symbol">
+<span class="material-symbols-outlined text-[14px]">close</span> CONTAINS SYMBOL (!@#$%)
+                </div>
+<div class="text-error flex items-center gap-xs" id="req-number">
+<span class="material-symbols-outlined text-[14px]">close</span> CONTAINS NUMERIC VALUE
+                </div>
+<div class="text-error flex items-center gap-xs" id="req-match">
+<span class="material-symbols-outlined text-[14px]">close</span> PASSKEYS MATCH
+                </div>
+</div>
+<button class="btn-primary mt-md w-full bg-primary-container text-on-primary-fixed font-label-caps text-label-caps py-sm px-md uppercase tracking-[0.2em] transition-all disabled:opacity-50 disabled:cursor-not-allowed border border-primary-container" disabled="" id="update-btn" type="button">
+                &gt; UPDATE PROTOCOL
+            </button>
+</form>
+<!-- Success State (Hidden by default) -->
+<div class="hidden flex-col items-center justify-center text-center gap-md py-xl" id="success-state">
+<div class="w-16 h-16 border border-primary-container rounded-sm flex items-center justify-center bg-primary-container/10 shadow-[0_0_20px_rgba(57,255,20,0.2)]">
+<span class="material-symbols-outlined text-primary-fixed-dim text-4xl" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<div class="flex flex-col gap-xs">
+<h2 class="font-headline-md text-headline-md text-primary-fixed-dim uppercase">PASSWORD SUCCESSFULLY CHANGED</h2>
+<p class="font-technical-sm text-technical-sm text-on-surface-variant">&gt; VAULT ACCESS RESTORED. ROUTING TO LOGIN PORTAL...</p>
+</div>
+</div>
+</main>
+<script>
+        const newPasskeyInput = document.getElementById('new-passkey');
+        const confirmPasskeyInput = document.getElementById('confirm-passkey');
+        const updateBtn = document.getElementById('update-btn');
+        const formArea = document.getElementById('recovery-form');
+        const successState = document.getElementById('success-state');
+
+        const reqLength = document.getElementById('req-length');
+        const reqSymbol = document.getElementById('req-symbol');
+        const reqNumber = document.getElementById('req-number');
+        const reqMatch = document.getElementById('req-match');
+
+        function updateRequirement(el, isValid) {
+            if (isValid) {
+                el.classList.remove('text-error');
+                el.classList.add('text-primary-fixed-dim');
+                el.innerHTML = '<span class="material-symbols-outlined text-[14px]">check</span> ' + el.innerText.substring(2);
+            } else {
+                el.classList.add('text-error');
+                el.classList.remove('text-primary-fixed-dim');
+                el.innerHTML = '<span class="material-symbols-outlined text-[14px]">close</span> ' + el.innerText.substring(2);
+            }
+        }
+
+        function validateForm() {
+            const val = newPasskeyInput.value;
+            const confirmVal = confirmPasskeyInput.value;
+
+            const hasLength = val.length >= 12;
+            const hasSymbol = /[!@#$%^&*(),.?":{}|<>]/.test(val);
+            const hasNumber = /\d/.test(val);
+            const isMatch = val === confirmVal && val.length > 0;
+
+            updateRequirement(reqLength, hasLength);
+            updateRequirement(reqSymbol, hasSymbol);
+            updateRequirement(reqNumber, hasNumber);
+            updateRequirement(reqMatch, isMatch);
+
+            if (hasLength && hasSymbol && hasNumber && isMatch) {
+                updateBtn.removeAttribute('disabled');
+            } else {
+                updateBtn.setAttribute('disabled', 'true');
+            }
+        }
+
+        newPasskeyInput.addEventListener('input', validateForm);
+        confirmPasskeyInput.addEventListener('input', validateForm);
+
+        updateBtn.addEventListener('click', () => {
+            updateBtn.innerHTML = '> PROCESSING...';
+            setTimeout(() => {
+                formArea.classList.add('hidden');
+                successState.classList.remove('hidden');
+                successState.classList.add('flex');
+            }, 1000);
+        });
+    </script>
+</body></html>
